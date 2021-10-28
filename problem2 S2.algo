@@ -1,0 +1,35 @@
+ALGORITHM pb2_sol2
+VAR
+ set_1 : ARRAY_OF INTEGER[];
+ set_2 : ARRAY_OF INTEGER[];
+ htab  : HASH_TABLE<INTEGER,INTEGER> ;
+ sum,j,i,count:INTEGER;
+
+BEGIN
+    READ(set_1)
+    READ(set_2)
+    sum:=0;
+    FOR i FROM 0 TO set_1.length-1 STEP 1  DO
+        htab.insert(set_1[i],1)
+        FOR j FROM 0 TO set_2.length-1 STEP 1  DO
+            count:=1;
+            IF (htab.lookup(set_2[j])=TRUE) THEN
+            count:=count+1;
+            htab.insert(set_1[i],count)
+            sum:=sum+set_1[i]
+            END_IF
+            
+        END_FOR
+    END_FOR
+    FOR i FROM 0 TO set_2.length-1 STEP 1  DO
+        count:=1;
+        IF(htab.lookup(set_2[i])=TRUE) THEN
+        count:=count+1;
+        htab.insert(set_2[i],count)
+         sum:=sum+set_2[i]
+        END_IF
+        htab.insert(set_2[i],1);
+    END_FOR
+    write(sum);
+
+END

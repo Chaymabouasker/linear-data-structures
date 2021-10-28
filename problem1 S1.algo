@@ -1,0 +1,32 @@
+ALGORITHM pb1_sol1
+VAR
+    i , j , sum , S: INTEGER;
+     set_1 : ARRAY_OF INTEGER[];
+     set_2 : ARRAY_OF INTEGER[];
+BEGIN
+    READ(set_1);
+    READ(set_2);
+    s:=0;
+    sum:=0;
+    FOR i FROM 0 TO set_1.length-1 STEP 1  DO
+        FOR j FROM 0 TO set_2.length-1 STEP 1  DO
+            IF (set_1[i]<>set_2[j]) THEN
+               s:=set_1[i]
+            ELSE
+               s:=0;
+            END_IF
+            sum=sum+s
+        END_FOR
+    END_FOR
+    FOR i FROM 0 TO set_2.length-1 STEP 1  DO
+        FOR j FROM 0 TO set_1.length-1 STEP 1  DO
+            IF (set_2[i]<>set_1[j]) THEN
+               s:=set_2[i]
+            ELSE
+               s:=0;
+            END_IF
+            sum=sum+s
+        END_FOR
+    END_FOR
+    write (sum);
+END
