@@ -1,6 +1,6 @@
 ALGORITHM pb1_sol1
 VAR
-    i , j , sum , S: INTEGER;
+    i , j , sum , s: INTEGER;
      set_1 : ARRAY_OF INTEGER[];
      set_2 : ARRAY_OF INTEGER[];
 BEGIN
